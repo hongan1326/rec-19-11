@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Men's Day 19/11 💙</title>
+<style>
+  :root {
+    --blue-main: #7bb4e3;
+    --blue-deep: #447fb5;
+    --blue-soft: #b8dcfa;
+    --ink: #465b70;
+    --paper: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+    color: var(--ink);
+    background: linear-gradient(160deg, #cce7ff 0%, #e7f4ff 50%, #cde6fc 100%);
+    display: grid;
+    place-items: center;
+  }
+
+  .sky {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cloud {
+    position: absolute;
+    width: 175px;
+    height: 58px;
+    background: #ffffff;
+    opacity: 0.75;
+    border-radius: 60px;
+    filter: blur(7px);
+    animation: drift 20s ease-in-out infinite alternate;
+  }
+
+  .cloud:before, .cloud:after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+  }
+
+  .cloud:before { width: 74px; height: 74px; left: 26px; top: -32px; }
+  .cloud:after { width: 90px; height: 84px; right: 22px; top: -38px; }
+
+  .c1 { top: 9%; left: 5%; animation-duration: 19s; }
+  .c2 { top: 70%; right: 5%; transform: scale(0.92); animation-duration: 24s; }
+  .c3 { top: 38%; left: 72%; transform: scale(0.72); animation-duration: 17s; }
+  .c4 { top: 82%; left: 14%; transform: scale(0.78); animation-duration: 22s; }
+
+  @keyframes drift {
+    from { transform: translateX(-20px); }
+    to { transform: translateX(38px); }
+  }
+
+  .float-item {
+    position: absolute;
+    opacity: 0;
+    animation: floatUp linear infinite;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  @keyframes floatUp {
+    0% { opacity: 0; transform: translateY(25px) scale(0.65) rotate(0deg); }
+    25% { opacity: 0.85; }
+    80% { opacity: 0.78; }
+    100% { opacity: 0; transform: translateY(-105px) scale(1.12) rotate(28deg); }
+  }
+
+  .topbar {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    justify-content: flex-start;
+    z-index: 30;
+  }
+
+  .tools {
+    display: flex;
+    gap: 10px;
+  }
+
+  .round {
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--blue-deep);
+    border-radius: 50%;
+    font-size: 18px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(79, 137, 189, 0.2);
+    backdrop-filter: blur(8px);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .round:hover {
+    transform: scale(1.07);
+    background: #ffffff;
+  }
+
+  .scene {
+    position: relative;
+    width: min(96vw, 680px);
+    height: min(94vh, 840px);
+    display: grid;
+    place-items: center;
+    perspective: 1200px;
+    z-index: 5;
+  }
+
+  .envelope-wrap {
+    position: relative;
+    width: min(84vw, 370px);
+    height: 230px;
+    cursor: pointer;
+    filter: drop-shadow(0 15px 24px rgba(72, 128, 179, 0.28));
+    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 6;
+  }
+
+  .envelope-wrap:hover {
+    transform: translateY(-6px);
+  }
+
+  .envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #8cc2ed;
+    border-radius: 8px;
+    z-index: 1;
+  }
+
+  .letter-peek {
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    height: 195px;
+    bottom: 12px;
+    background-color: #ffffff;
+    background-image: radial-gradient(#cbe4f8 1.3px, transparent 1.3px);
+    background-size: 14px 14px;
+    border-radius: 10px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 16px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 17px;
+    color: var(--blue-deep);
+    box-shadow: 0 3px 12px rgba(68, 127, 181, 0.16);
+    transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.45s, opacity 0.45s ease 1.35s;
+  }
+
+  .envelope-front {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    border-radius: 8px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .envelope-front:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #a7d4f7 0%, #8ec3ed 100%);
+    clip-path: polygon(0 0, 52% 54%, 0 100%);
+  }
+
+  .envelope-front:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(225deg, #9eccf2 0%, #85bce8 100%);
+    clip-path: polygon(100% 0, 48% 54%, 100% 100%);
+  }
+
+  .envelope-bottom {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: linear-gradient(0deg, #b5dcfa 0%, #98caf2 100%);
+    clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+    border-radius: 0 0 8px 8px;
+    pointer-events: none;
+    box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.5);
+  }
+
+  .flap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 58%;
+    z-index: 5;
+    background: linear-gradient(180deg, #b9dffb 0%, #94c7f0 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    transition: transform 0.75s cubic-bezier(0.3, 0.85, 0.35, 1), z-index 0.1s 0.35s;
+    filter: drop-shadow(0 3px 4px rgba(68, 127, 181, 0.22));
+  }
+
+  .seal {
+    position: absolute;
+    z-index: 7;
+    left: 50%;
+    top: 54%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: radial-gradient(circle at 30% 30%, #5a9bd4, #2f699e);
+    border: 2.5px solid #d4ecff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    font-size: 21px;
+    box-shadow: 0 4px 12px rgba(36, 82, 124, 0.4);
+    transition: transform 0.45s ease, opacity 0.45s ease;
+  }
+
+  .stamps {
+    position: absolute;
+    z-index: 6;
+    right: 16px;
+    top: 14px;
+    display: flex;
+    gap: 6px;
+    transform: rotate(4deg);
+    transition: opacity 0.4s ease;
+  }
+
+  .stamp {
+    width: 30px;
+    height: 34px;
+    background: #ffffff;
+    border: 1.8px dashed #7db7e8;
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    color: var(--blue-deep);
+    box-shadow: 0 2px 6px rgba(68, 127, 181, 0.22);
+  }
+
+  .stamp:last-child {
+    transform: rotate(6deg) translateY(2px);
+    color: #e26d8a;
+  }
+
+  .hint {
+    position: absolute;
+    top: calc(50% + 148px);
+    width: 100%;
+    text-align: center;
+    color: var(--blue-deep);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    animation: pulse 1.8s infinite;
+    transition: opacity 0.4s;
+  }
+
+  @keyframes pulse { 50% { opacity: 0.4; } }
+
+  .card {
+    position: absolute;
+    z-index: 12;
+    width: min(93vw, 600px);
+    max-height: 86vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--paper);
+    border-radius: 18px;
+    padding: 28px 32px 22px;
+    text-align: center;
+    box-shadow: 0 18px 48px rgba(63, 118, 168, 0.28);
+    border: 2px solid #e1f1ff;
+    opacity: 0;
+    transform: translateY(30px) scale(0.78);
+    pointer-events: none;
+    transition: opacity 0.7s ease 1.35s, transform 0.8s cubic-bezier(0.2, 0.85, 0.25, 1) 1.35s;
+  }
+
+  @media (max-width: 520px) {
+    .card {
+      padding: 22px 20px 18px;
+    }
+  }
+
+  .card:before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1.5px dashed #add6f7;
+    border-radius: 12px;
+    pointer-events: none;
+  }
+
+  .mini-icons {
+    font-size: 18px;
+    letter-spacing: 8px;
+    color: #7bb4e3;
+    margin-bottom: 6px;
+  }
+
+  .card h1 {
+    font-size: clamp(20px, 4.5vw, 25px);
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--blue-deep);
+    margin: 2px 0 4px;
+  }
+
+  .date {
+    font-size: 11.5px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    color: #8ab6db;
+    margin-bottom: 14px;
+  }
+
+  .card-scroll {
+    overflow-y: auto;
+    padding-right: 6px;
+    text-align: left;
+    flex: 1;
+  }
+
+  .card-scroll::-webkit-scrollbar { width: 4px; }
+  .card-scroll::-webkit-scrollbar-thumb { background: #cbe5fa; border-radius: 4px; }
+
+  .greeting-box p {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--blue-deep);
+    margin: 0 0 10px;
+  }
+
+  .body-box p {
+    font-size: 14.5px;
+    line-height: 1.68;
+    margin: 0 0 11px;
+    color: #4d6278;
+    white-space: pre-line;
+  }
+
+  .card-footer {
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid #e6f2fc;
+  }
+
+  .card .closing {
+    text-align: center;
+    color: var(--blue-deep);
+    font-weight: 800;
+    font-size: 14.5px;
+    line-height: 1.55;
+    margin: 0 0 6px;
+  }
+
+  .signature {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #79a7cf;
+  }
+
+  .replay {
+    margin-top: 10px;
+    border: 0;
+    border-radius: 20px;
+    padding: 8px 18px;
+    background: #e6f3ff;
+    color: var(--blue-deep);
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .replay:hover {
+    background: #d2e9ff;
+    transform: scale(1.03);
+  }
+
+  .open .seal {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .open .stamps {
+    opacity: 0;
+  }
+
+  .open .flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+  }
+
+  .open .letter-peek {
+    transform: translateY(-138px);
+    opacity: 0;
+  }
+
+  .open .envelope-wrap {
+    transform: translateY(-210px) scale(0.85);
+    opacity: 0.45;
+    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 1.25s, opacity 0.85s ease 1.25s;
+    pointer-events: none;
+  }
+
+  .open .hint {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .open .card {
+    opacity: 1;
+    transform: translateY(18px) scale(1);
+    pointer-events: auto;
+  }
+
+  .open .mini-icons { animation: fadeSlideUp 0.6s ease both 1.65s; }
+  .open .card h1 { animation: fadeSlideUp 0.6s ease both 1.75s; }
+  .open .date { animation: fadeSlideUp 0.6s ease both 1.85s; }
+  .open .greeting-box { animation: fadeSlideUp 0.65s ease both 1.95s; }
+  .open .body-box p:nth-child(1) { animation: fadeSlideUp 0.7s ease both 2.1s; }
+  .open .body-box p:nth-child(2) { animation: fadeSlideUp 0.7s ease both 2.3s; }
+  .open .body-box p:nth-child(3) { animation: fadeSlideUp 0.7s ease both 2.5s; }
+  .open .body-box p:nth-child(n+4) { animation: fadeSlideUp 0.7s ease both 2.65s; }
+  .open .card-footer { animation: fadeSlideUp 0.7s ease both 2.75s; }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="sky" id="sky">
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <div class="cloud c3"></div>
+  <div class="cloud c4"></div>
+</div>
+
+<div class="topbar">
+  <div class="tools">
+    <button class="round" id="decorBtn" title="Bật/tắt hiệu ứng bay">✧</button>
+    <button class="round" id="soundBtn" title="Phát/tạm dừng nhạc nền">♫</button>
+  </div>
+</div>
+
+<main class="scene" id="scene">
+  <div class="envelope-wrap" id="envelope" role="button" tabindex="0" aria-label="Mở thư">
+    <div class="envelope-back"></div>
+    <div class="letter-peek" id="outPeek">Gửi các chàng trai nhà REC 💙</div>
+    <div class="envelope-front"></div>
+    <div class="envelope-bottom"></div>
+    <div class="flap"></div>
+    <div class="seal">♥</div>
+    <div class="stamps">
+      <div class="stamp">✿</div>
+      <div class="stamp">♥</div>
+    </div>
+  </div>
+
+  <div class="hint">✦ CHẠM ĐỂ MỞ THƯ ✦</div>
+
+  <article class="card">
+    <div class="mini-icons">♥ ✿ ♥</div>
+    <h1 id="outTitle">HAPPY INTERNATIONAL MEN'S DAY</h1>
+    <div class="date" id="outDate">19 . 11 . 2026</div>
+
+    <div class="card-scroll">
+      <div class="greeting-box" id="outGreeting">
+        <p>Gửi các chàng trai nhà REC 💙</p>
+      </div>
+      <div class="body-box" id="outBody">
+        <p>19/11 là một dịp đặc biệt để tụi mình tạm gác lại những công việc bận rộn, ngồi xuống và gửi đôi lời nhắn nhủ chân thành đến những người anh em đã luôn đồng hành cùng câu lạc bộ.</p>
+        <p>Cảm ơn các bạn vì giữa rất nhiều lựa chọn ngoài kia, đã quyết định gắn bó và cùng tụi mình xây dựng mái nhà chung này. Ở REC, sự đóng góp của các bạn đôi khi không ồn ào hay phô trương, mà nằm ở sự xông xáo trong từng sự kiện, sự kiên nhẫn khi cùng nhau giải quyết những đầu việc khó, hay đơn giản là sự có mặt đúng lúc mỗi khi mọi người cần hỗ trợ. Chính sự tử tế và tinh thần trách nhiệm đó đã tạo nên một điểm tựa rất vững vàng cho cả tập thể.</p>
+        <p>Nhân ngày Quốc tế Đàn ông, chúc các bạn luôn giữ được sự nhiệt huyết của tuổi trẻ, sự vững vàng trước những thử thách và luôn hết mình với những đam mê đang theo đuổi. Chúc các nam thần nhà REC có một ngày 19/11 thật vui, nhiều năng lượng và lúc nào cũng giữ vững phong độ nhaaa! ✨🚀</p>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <p class="closing" id="outClosing">Cảm ơn các bạn vì đã trở thành một mảnh ghép thật đẹp trong thanh xuân của tụi mình tại REC! 💙</p>
+      <div class="signature" id="outSignature">From REC with love ♡</div>
+      <button class="replay" id="replay">Đóng phong bì ↻</button>
+    </div>
+  </article>
+</main>
+
+<audio id="audio" src="nhac.mp3" loop></audio>
+
+<script>
+const $ = id => document.getElementById(id);
+const scene = $('scene');
+const audio = $('audio');
+
+let decorVisible = true;
+
+function openLetter() {
+  scene.classList.add('open');
+  if (audio.paused && audio.src) {
+    audio.play().then(() => { $('soundBtn').textContent = '♪'; }).catch(() => {});
+  }
+}
+
+$('envelope').onclick = openLetter;
+$('envelope').onkeydown = e => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    openLetter();
+  }
+};
+$('replay').onclick = () => scene.classList.remove('open');
+
+$('soundBtn').onclick = async () => {
+  if (audio.paused) {
+    try {
+      await audio.play();
+      $('soundBtn').textContent = '♪';
+    } catch (e) {}
+  } else {
+    audio.pause();
+    $('soundBtn').textContent = '♫';
+  }
+};
+
+const symbols = [
+  { char: '♥', color: '#7db9e8' },
+  { char: '♡', color: '#5b9bd5' },
+  { char: '✿', color: '#8ec5f0' },
+  { char: '❀', color: '#a3d2f7' },
+  { char: '✦', color: '#6ba8de' },
+  { char: '★', color: '#9acbf2' }
+];
+
+for (let i = 0; i < 38; i++) {
+  const item = document.createElement('span');
+  const sym = symbols[i % symbols.length];
+  item.className = 'float-item';
+  item.textContent = sym.char;
+  item.style.color = sym.color;
+  item.style.left = Math.random() * 98 + '%';
+  item.style.top = (12 + Math.random() * 85) + '%';
+  item.style.fontSize = (12 + Math.random() * 14) + 'px';
+  item.style.animationDelay = (Math.random() * 6) + 's';
+  item.style.animationDuration = (4.5 + Math.random() * 4.5) + 's';
+  $('sky').appendChild(item);
+}
+
+$('decorBtn').onclick = () => {
+  decorVisible = !decorVisible;
+  const items = $('sky').querySelectorAll('.float-item');
+  items.forEach(el => {
+    el.style.display = decorVisible ? 'block' : 'none';
+  });
+  $('decorBtn').style.opacity = decorVisible ? '1' : '0.55';
+};
+</script>
+</body>
+</html>
